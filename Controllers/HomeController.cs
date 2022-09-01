@@ -23,9 +23,9 @@ namespace FYD_s.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult Anketa()
         {
-            return View();
+            return RedirectToAction("Index", "Anketa");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
