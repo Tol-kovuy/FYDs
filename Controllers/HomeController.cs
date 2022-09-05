@@ -20,7 +20,8 @@ namespace FYD_s.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            PageData indexData = new PageData(true);
+            return View(indexData);
         }
 
         public IActionResult Anketa()

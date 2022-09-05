@@ -1,4 +1,5 @@
-﻿@{ 
+﻿@model PageData 
+@{ 
     ViewData["Title"] = "Find Your Doctor";
 }
 <!DOCTYPE html>
@@ -77,14 +78,13 @@
         </div>
     </header><!-- End Header -->
     <!-- ======= Hero Section ======= -->
-    <section id="hero" class="clearfix">
+    <section id="hero" class="clearfix @Model.Style">
         <div class="container d-flex h-100">
             <div class="row justify-content-center align-self-center" data-aos="fade-up">
                 <div class="col-lg-6 intro-info order-lg-first order-last" data-aos="zoom-in" data-aos-delay="100">
                     <h2>Знайди<br> Свого <span>Лікаря!</span></h2>
                     <div>
-                        <a  class="btn-get-started scrollto">@Html.ActionLink("Розпочнемо", "Anketa", "Home")</a>
-                        @*<a href="@{/ }" class="btn-get-started scrollto">Розпочнемо</a>*@
+                        <a class="btn-get-started scrollto" asp-area="" asp-controller="Home" asp-action="Anketa">@Model.Button</a>
                     </div>
                 </div>
                 <div class="col-lg-6 intro-img order-lg-last order-first" data-aos="zoom-out" data-aos-delay="200">
@@ -100,7 +100,7 @@
                 <div class="row">
                     <div class="col-lg-5 col-md-6">
                         <div class="about-img" data-aos="fade-right" data-aos-delay="100">
-                            <img src="img/about-img.jpg" />
+                            <img src="img/about-img.jpg"/>
                         </div>
                     </div>
                     <div class="col-lg-7 col-md-6">
