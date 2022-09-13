@@ -30,7 +30,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="GoogleApi" Version="4.2.3" />
+    <PackageReference Include="MailChimp.Net.V3" Version="5.3.1" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
+    <PackageReference Include="Unipluss.Sign.Client" Version="1.0.2876" />
   </ItemGroup>
 
 </Project>
