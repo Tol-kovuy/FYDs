@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using FYD_s.DAL.Interfaces;
@@ -9,7 +10,7 @@ using FYD_s.Domain.Helpers;
 using FYD_s.Domain.Response;
 using FYD_s.Domain.ViewModels.Account;
 using FYD_s.Service.Interfaces;
-using Microsoft.EntityFrameworkCore;
+//using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
 namespace FYD_s.Service.Implementations
@@ -28,11 +29,11 @@ namespace FYD_s.Service.Implementations
             _proFileRepository = proFileRepository;
         }
 
-        public async Task<BaseResponse<ClaimsIdentity>> Register(RegisterViewModel model)
+        public BaseResponse<ClaimsIdentity> Register(RegisterViewModel model)
         {
             try
             {
-                var user = await _userRepository.GetAll().FirstOrDefaultAsync(x => x.Name == model.Name);
+                var user = _userRepository.GetAll().FirstOrDefault(x => x.Name == model.Name);
                 if (user != null)
                 {
                     return new BaseResponse<ClaimsIdentity>()
@@ -53,8 +54,8 @@ namespace FYD_s.Service.Implementations
                     UserId = user.Id,
                 };
 
-                await _userRepository.Create(user);
-                await _proFileRepository.Create(profile);
+                 _userRepository.Create(user);
+                _proFileRepository.Create(profile);
                 var result = Authenticate(user);
 
                 return new BaseResponse<ClaimsIdentity>()
@@ -75,11 +76,11 @@ namespace FYD_s.Service.Implementations
             }
         }
 
-        public async Task<BaseResponse<ClaimsIdentity>> Login(LoginViewModel model)
+        public BaseResponse<ClaimsIdentity> Login(LoginViewModel model)
         {
             try
             {
-                var user = await _userRepository.GetAll().FirstOrDefaultAsync(x => x.Name == model.Name);
+                var user = _userRepository.GetAll().FirstOrDefault(x => x.Name == model.Name);
                 if (user == null)
                 {
                     return new BaseResponse<ClaimsIdentity>()
@@ -114,11 +115,11 @@ namespace FYD_s.Service.Implementations
             }
         }
 
-        public async Task<BaseResponse<bool>> ChangePassword(ChangePasswordViewModel model)
+        public BaseResponse<bool> ChangePassword(ChangePasswordViewModel model)
         {
             try
             {
-                var user = await _userRepository.GetAll().FirstOrDefaultAsync(x => x.Name == model.UserName);
+                var user = _userRepository.GetAll().FirstOrDefault(x => x.Name == model.UserName);
                 if (user == null)
                 {
                     return new BaseResponse<bool>()
@@ -129,7 +130,7 @@ namespace FYD_s.Service.Implementations
                 }
 
                 user.Password = HashPasswordHelper.HashPassword(model.NewPassword);
-                await _userRepository.Update(user);
+                _userRepository.Update(user);
 
                 return new BaseResponse<bool>()
                 {
