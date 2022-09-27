@@ -1,8 +1,4 @@
-﻿using System;
-using System.Security.Cryptography;
-using System.Text;
-
-namespace FYD_s.Domain.Helpers
+﻿namespace FYD_s.Domain.Helpers
 {
     public class HashPasswordHelper
     {
@@ -13,7 +9,7 @@ namespace FYD_s.Domain.Helpers
                 var hashedBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
                 var hash = BitConverter.ToString(hashedBytes).Replace("-", "").ToLower();
 
-                return hash;   
+                return hash;
             }
         }
     }

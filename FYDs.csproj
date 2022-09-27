@@ -5,6 +5,11 @@
     <RootNamespace>FYD_s</RootNamespace>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
   <ItemGroup>
     <Content Update="wwwroot\img\about-img.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -30,8 +35,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Fluent.Infrastructure" Version="2.0.0-beta-01" />
     <PackageReference Include="GoogleApi" Version="4.2.3" />
     <PackageReference Include="MailChimp.Net.V3" Version="5.3.1" />
+    <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.2.9" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
     <PackageReference Include="Unipluss.Sign.Client" Version="1.0.2876" />
   </ItemGroup>

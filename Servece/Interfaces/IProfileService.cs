@@ -1,7 +1,6 @@
 ﻿using FYD_s.Domain.Entity;
 using FYD_s.Domain.Response;
 using FYD_s.Domain.ViewModels.Profile;
-using System.Threading.Tasks;
 
 namespace FYD_s.Servece.Interfaces
 {

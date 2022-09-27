@@ -76,11 +76,11 @@ namespace FYD_s.Controllers
         {
             if (ModelState.IsValid)
             {
-                //var response = await _accountService.ChangePassword(model);
-                //if (response.StatusCode == Domain.Enum.StatusCode.OK)
-                //{
-                //    return Json(new { description = response.Description });
-                //}
+                var response = await _accountService.ChangePassword(model);
+                if (response.StatusCode == Domain.Enum.StatusCode.OK)
+                {
+                    return Json(new { description = response.Description });
+                }
             }
             var modelError = ModelState.Values.SelectMany(v => v.Errors);
 

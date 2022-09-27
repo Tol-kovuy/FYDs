@@ -1,8 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Reflection;
-
-namespace FYD_s.Domain.Extensions
+﻿namespace FYD_s.Domain.Extensions
 {
     public static class EnumExtension
     {

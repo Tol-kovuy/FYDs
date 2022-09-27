@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Text;
-
-namespace FYD_s.Domain.Extensions
+﻿namespace FYD_s.Domain.Extensions
 {
     public static class StringExtension
     {
